@@ -10,10 +10,6 @@ Attribute VB_Exposed = False
 Option Compare Database
 Option Explicit
 
-Private Sub btnEncode_Click()
-  Me.txtOutput.Value = EncodeBase64(Me.txtInput.Value, Me.txtKey.Value)
-End Sub
-
 Private Sub btnSubmit_Click()
   Dim strSQL As String
   Dim strHash As String
