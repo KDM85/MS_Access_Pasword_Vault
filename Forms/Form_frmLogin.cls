@@ -16,6 +16,7 @@ Private Sub btnSubmit_Click()
   Dim strStoredHash As String
   
   If IsNull(Me.txtMasterPass.Value) Then
+  ' No password entered
     MsgBox "Enter Master Password", vbInformation
     Me.txtMasterPass.SetFocus
     Exit Sub
@@ -25,6 +26,7 @@ Private Sub btnSubmit_Click()
   strStoredHash = DLookup("Master", "tblMaster")
   
   If StrComp(strHash, strStoredHash, vbBinaryCompare) <> 0 Then
+    ' Hashed value does not match hash in database
     MsgBox "Invalid password. Please try again.", vbInformation
     Me.txtMasterPass.Value = ""
     Me.txtMasterPass.SetFocus
