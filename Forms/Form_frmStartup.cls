@@ -12,10 +12,14 @@ Option Explicit
 
 Private Sub Form_Load()
   Me.Visible = False
+  ' Hide the form
   If IsNull(DLookup("Master", "tblMaster", "id = 1")) Then
+  ' Open the Set Master Password window if no master password exists in the database
     DoCmd.OpenForm "frmSetMasterPassword"
   Else
+  ' Open the Login window if a master password exists in the database
     DoCmd.OpenForm "frmLogin"
   End If
   DoCmd.Close acForm, "frmStartup"
+  ' Close the form
 End Sub
